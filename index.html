@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .board {
+            display: grid;
+            grid-template-columns: repeat(10, 50px);
+            grid-template-rows: repeat(10, 50px);
+        }
+
+        .square {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            font-size: 1.2em;
+            position: relative;
+        }
+
+        .white {
+            background-color: #f0d9b5;
+        }
+
+        .black {
+            background-color: #b58863;
+        }
+
+        .piece-name {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+        }
+
+        .square:hover .piece-name {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+<div class="board">
+    <!-- Loop to create 10x10 board -->
+    <!-- Assuming pieces are represented by their initials -->
+    <!-- Replace ' ' with the piece initials for starting positions -->
+    <!-- You can customize the starting position according to your needs -->
+    <!-- Example: 'K' for the white king, 'k' for the black king, etc. -->
+    <!-- The order is R, N, B, Q, K, B, N, R for white, and lowercase for black -->
+    <!-- Pawns are represented by 'P' and 'p' respectively -->
+    <?php
+    $pieces = ['R', 'N', 'B', 'Q', 'K', 'B', 'N', 'R'];
+    $pawn = 'P';
+    for ($row = 1; $row <= 8; $row++) {
+        for ($col = 1; $col <= 8; $col++) {
+            $isWhite = ($row + $col) % 2 == 0;
+            $piece = '';
+            
+            if ($row == 2) {
+                $piece = $pawn;
+            } elseif ($row == 7) {
+                $piece = strtolower($pawn);
+            } elseif (($row == 1 || $row == 8) && ($col >= 1 && $col <= 8)) {
+                $piece = $pieces[$col - 1];
+            }
+
+            echo '<div class="square ' . ($isWhite ? 'white' : 'black') . '">
+                    <span class="piece-name">' . $piece . '</span>
+                  </div>';
+        }
+    }
+    ?>
+</div>
+
+</body>
+</html>
