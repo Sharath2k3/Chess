@@ -11,10 +11,11 @@
             .chess-board td:last-child { border-right: 1px solid #000; }
             .chess-board tr:last-child td { border-bottom: 1px solid; }
             .chess-board th:empty { border: none; }
-            .chess-board td { position: relative; width: 1.5em; height: 1.5em; text-align: center; font-size: 32px; line-height: 0;}
+            .chess-board td { position: relative; width: 1.5em; height: 1.5em; text-align: center; font-size: 32px; line-height: 0; transition: transform 0.3s; }
             .chess-board .light { background: #eee; }
             .chess-board .dark { background: #aaa; }
             .chess-piece { display: none; }
+            .chess-piece:hover { transform: scale(1.2); } /* Zoom effect on hover */
         </style>
     </head>
     <body>
