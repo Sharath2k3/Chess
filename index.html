@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title></title>
+        <title>Chess Board</title>
         <meta charset="UTF-8">
-        <script src="script.js"></script>
         <style>
             .chess-board { border-spacing: 0; border-collapse: collapse; }
             .chess-board th { padding: .5em; }
@@ -12,7 +11,7 @@
             .chess-board td:last-child { border-right: 1px solid #000; }
             .chess-board tr:last-child td { border-bottom: 1px solid; }
             .chess-board th:empty { border: none; }
-            .chess-board td { width: 1.5em; height: 1.5em; text-align: center; font-size: 32px; line-height: 0;}
+            .chess-board td { position: relative; width: 1.5em; height: 1.5em; text-align: center; font-size: 32px; line-height: 0;}
             .chess-board .light { background: #eee; }
             .chess-board .dark { background: #aaa; }
             .chess-piece { display: none; }
@@ -122,5 +121,21 @@
                 </tr>
             </tbody>
         </table>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                var cells = document.querySelectorAll('.chess-board td');
+                
+                cells.forEach(function (cell) {
+                    cell.addEventListener('mouseenter', function () {
+                        var piece = this.querySelector('.chess-piece');
+                        piece.style.display = 'block';
+                        setTimeout(function () {
+                            piece.style.display = 'none';
+                        }, 30000); // 30 seconds
+                    });
+                });
+            });
+        </script>
     </body>
 </html>
