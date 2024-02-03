@@ -54,14 +54,10 @@
             visibility: visible;
         }
 
-        /* Replace the Unicode chess symbols with actual image URLs */
+        /* Replace Unicode chess symbols with actual image URLs */
         .piece img {
             width: 30px;
             height: 30px;
-        }
-
-        .piece img[src="pawn-white.png"] {
-            filter: invert(1); /* Invert color for dark squares */
         }
     </style>
 </head>
@@ -76,14 +72,14 @@
         document.addEventListener('DOMContentLoaded', function () {
             const chessboard = document.getElementById('chessboard');
             const pieceImages = [
-                '♜', '♞', '♝', '♛', '♚', '♝', '♞', '♜',
-                '♟', '♟', '♟', '♟', '♟', '♟', '♟', '♟',
+                'rook', 'knight', 'bishop', 'queen', 'king', 'bishop', 'knight', 'rook',
+                'pawn', 'pawn', 'pawn', 'pawn', 'pawn', 'pawn', 'pawn', 'pawn',
                 '', '', '', '', '', '', '', '',
                 '', '', '', '', '', '', '', '',
                 '', '', '', '', '', '', '', '',
                 '', '', '', '', '', '', '', '',
-                '♙', '♙', '♙', '♙', '♙', '♙', '♙', '♙',
-                '♖', '♘', '♗', '♕', '♔', '♗', '♘', '♖'
+                'pawn', 'pawn', 'pawn', 'pawn', 'pawn', 'pawn', 'pawn', 'pawn',
+                'rook', 'knight', 'bishop', 'queen', 'king', 'bishop', 'knight', 'rook'
             ];
 
             for (let row = 0; row < 8; row++) {
@@ -97,7 +93,7 @@
                     if (pieceImage) {
                         const pieceSpan = document.createElement('span');
                         pieceSpan.className = 'piece';
-                        pieceSpan.innerHTML = `<img src="images/${pieceImage.toLowerCase()}.png" alt="${pieceImage}" />`;
+                        pieceSpan.innerHTML = `<img src="${pieceImage}.png" alt="${pieceImage}" />`;
                         td.appendChild(pieceSpan);
                     }
 
