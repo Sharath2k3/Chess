@@ -33,12 +33,12 @@
         }
 
         .light {
-            background-color: #eeeed2;
+            background-color: white;
         }
 
         .chessboard tr:nth-child(even) td:nth-child(odd),
         .chessboard tr:nth-child(odd) td:nth-child(even) {
-            background-color: #769656;
+            background-color:;
         }
 
         .piece {
@@ -47,7 +47,7 @@
             left: 50%;
             transform: translate(-50%, -50%);
             visibility: hidden;
-            transition: visibility 0.3s ease-in-out;
+            transition: visibility 0s 30s, visibility 0.3s ease-in-out;
         }
 
         .chessboard td:hover .piece {
@@ -72,14 +72,14 @@
         document.addEventListener('DOMContentLoaded', function () {
             const chessboard = document.getElementById('chessboard');
             const pieceImages = [
-                'rook', 'knight', 'bishop', 'queen', 'king', 'bishop', 'knight', 'rook',
-                'pawn', 'pawn', 'pawn', 'pawn', 'pawn', 'pawn', 'pawn', 'pawn',
+                'blackrook', 'blackknight', 'blackbishop', 'blackqueen', 'blackking', 'blackbishop', 'blackknight', 'blackrook',
+                'blackpawn', 'blackpawn', 'blackpawn', 'blackpawn', 'blackpawn', 'blackpawn', 'blackpawn', 'blackpawn',
                 '', '', '', '', '', '', '', '',
                 '', '', '', '', '', '', '', '',
                 '', '', '', '', '', '', '', '',
                 '', '', '', '', '', '', '', '',
-                'pawn', 'pawn', 'pawn', 'pawn', 'pawn', 'pawn', 'pawn', 'pawn',
-                'rook', 'knight', 'bishop', 'queen', 'king', 'bishop', 'knight', 'rook'
+                'whitepawn', 'whitepawn', 'whitepawn', 'whitepawn', 'whitepawn', 'whitepawn', 'whitepawn', 'whitepawn',
+                'whiterook', 'whiteknight', 'whitebishop', 'whitequeen', 'whiteking', 'whitebishop', 'whiteknight', 'whiterook'
             ];
 
             for (let row = 0; row < 8; row++) {
